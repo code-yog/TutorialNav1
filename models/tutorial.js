@@ -29,7 +29,8 @@ const Tutorial = module.exports = mongoose.model('tuts',TutorialSchema);
 //Get all titles
 module.exports.getAllTitles = function(callback){
     const query = { ancestors: "root" , place: "title"  } ;
-    Tutorial.find(query,callback);
+
+    Tutorial.find(query,{ name: 1,  _id: 0 },callback);
 }
 
 // get by id
